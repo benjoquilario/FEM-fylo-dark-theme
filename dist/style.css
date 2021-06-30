@@ -123,6 +123,9 @@ header {
       background: linear-gradient(to right, #65e2d9, #339ecc);
       font-size: 1rem;
       padding: clamp(0.9rem, 2vw, 1.1rem) clamp(4.5rem, 8vw, 6rem); }
+  .hero__text .btn--hero {
+  opacity: 0.8; 
+}
 
 .features {
   background-color: #181f2a;
