@@ -28,6 +28,19 @@ ul li {
 a {
   text-decoration: none; }
 
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
 .btn {
   position: relative;
   display: inline-block;
@@ -295,7 +308,8 @@ footer {
     footer {
       grid-template-columns: 3fr 2fr 2fr 2fr auto;
       grid-template-rows: 3.75rem 1fr;
-      grid-template-areas: "logo logo logo logo logo"  "location info links more-links social";
+      grid-template-areas: "logo logo logo logo logo" 
+ "location info links more-links social";
       grid-column-gap: 2.1875rem; } }
   @media (min-width: 64em) {
     footer .logo {
