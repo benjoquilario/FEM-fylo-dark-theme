@@ -306,7 +306,7 @@ footer {
   padding: 14.0625rem 1.25rem 1.25rem;
   grid-gap: 1.875rem;
   background-color: #0b1523;
-  max-width: 90rem; }
+   }
   @media (min-width: 64em) {
     footer {
       grid-template-columns: 3fr 2fr 2fr 2fr auto;
