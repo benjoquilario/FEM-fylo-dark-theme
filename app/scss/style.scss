@@ -1,0 +1,434 @@
+@import "variables";
+@import "mixin";
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+    background-color: $darkBlue2;
+}
+h1,
+h2,
+h3,
+p {
+    font-family: 'Raleway', sans-serif;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+ul li{
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.btn {
+    position: relative;
+    display: inline-block;
+    border: none;
+    border-radius: 3.125rem;
+    color: $white;
+    cursor: pointer;
+    transition: all .4s;
+    outline: none;
+    overflow: hidden;
+    z-index: 1;
+}
+.content-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 80.125rem;
+
+    &--small {
+        @extend .content-wrapper; 
+        max-width: 62rem;   
+    }
+}
+
+header {
+    background-color: $darkBlue1;
+    padding: 1.25rem;
+    @include breakpoint-up(medium) {
+        padding: 3.6875rem 1.25rem;
+    }
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 5rem;
+            @include breakpoint-up(medium) {
+                width: 100%;
+            }
+        }
+        &__bar {
+            display: flex;
+            align-items: center;
+            gap: 0.9375rem;
+            @include breakpoint-up(large) {
+               gap: 3.6875rem;
+            }
+            .nav-link {
+                font-size: clamp(0.9rem, 1.5vw, 1rem);
+                color: $silver;
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.hero {
+    background: $darkBlue1 url('/images/bg-curvy-mobile.svg') no-repeat bottom;
+    background-size: 149% 45%;
+    padding: 1rem 0.9375rem;
+    position: relative;
+    @include breakpoint-up(medium) {
+        background: $darkBlue1 url('/images/bg-curvy-desktop.svg') no-repeat bottom;
+        background-size: 107% 30%;
+    }
+    
+    .content-wrapper--small{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.4375rem;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.1875rem;
+        text-align: center;
+        z-index: 1;
+        // > * {
+        //     z-index: 1;
+        // } 
+        h1 {
+            max-width: 42.125rem;
+            color: $white;
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+        }
+        p {
+            max-width: 37.5rem;
+            color: $silver;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.875remx;
+        }
+        .btn--hero {
+            background: linear-gradient(to right, $cyan, $blue);
+            font-size: 1rem;
+            padding: clamp(0.9rem, 2vw, 1.1rem) clamp(4.5rem, 8vw, 6rem);
+        }
+    }
+}
+
+.features {
+    background-color: $darkBlue2;
+    padding: 9.4375rem 0.625rem;
+
+    .content-wrapper--small {
+        max-width: 56.625rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-items: center;
+        grid-gap: 3.125rem;
+        text-align: center;
+        @include breakpoint-up(medium) {
+            grid-template-columns:repeat(2, minmax(9.375rem, 1fr));
+            grid-gap: 5.3125rem 7.3125rem;
+        }
+        img {
+            margin-bottom: 1.25rem;
+        }
+        h2 {
+            color: $white;
+            font-size: clamp(1.1rem, 1.7vw, 1.6rem);
+            margin-bottom: 0.625rem;
+        }
+        p {
+            color: $silver;
+            font-size: clamp(0.9rem, 0.7vw, 0.9rem);
+            max-width: 21.5rem;
+        }
+    }
+}
+
+.productive {
+    background-color: $darkBlue2;
+    position: relative;
+    padding: 0 0.625rem;
+
+    .content-wrapper {
+        max-width: 73.65rem;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+        gap: 2.75rem;
+        @include breakpoint-up(large) {
+            flex-direction: row;
+        }
+
+        .productive__img {
+            flex: 1 0 50%;
+        }
+        .productive__text {
+            flex: 1 0 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        
+            h2 {
+                font-size: clamp(1.3rem, 2.7vw, 2.6rem);
+                color: $white;
+                max-width: 25rem;
+            }
+            p {
+                color: $silver;
+                font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+            }
+            .btn-productive {
+                color: $cyan;
+                position: relative;
+                &:hover {
+                    color: $white;
+                    transform: scale(1.1);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -10%;
+                    left: 0px;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $cyan;
+                }
+                &::before {
+                    content: url('/images/icon-arrow.svg');
+                    position: absolute;
+                    right: -1.25rem;
+                    top: 4px;
+                }
+            }
+        }
+    }
+}
+
+
+.testimonial {
+    background-color: $darkBlue2;
+    padding: 10.5rem 1.875rem 3.75rem;
+    position: relative;
+    .content-wrapper--small {
+        max-width: 71.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.625rem;
+
+
+
+        @include breakpoint-up(medium) {
+            flex-direction: row;
+            gap: 2.3125rem;
+        }
+        .testimonial--1 {
+            position: relative;
+            &::before {
+                content: url('/images/bg-quotes.png');
+                position: absolute;
+                z-index: 0;
+                top: -2.5rem;
+                left: 0.875rem;
+            }
+        }
+        .testimonial__item{
+            background-color: $darkBlue4;
+            padding: 2.1875rem 1.4375rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            color: $silver;
+    
+            p {
+                font-size: clamp(0.8rem, 1vw, 0.9rem); 
+            }
+
+            &--person {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.3125rem;
+                img {
+                    width: 1.5625rem;
+                    height: 1.5625rem;
+                    border-radius: 50%;
+                }
+
+                .person__title {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+
+.cta {
+    background-color: $darkBlue1;
+    max-width: 53.75rem;
+    min-height: 17.3125rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 7vw, 6rem);
+    text-align: center;
+    border-radius: 0.625rem;
+    transform: translateY(50%);
+    gap: 2.875rem;
+
+    h2 {
+        color: $white;
+        font-size: clamp(1rem, 2.2vw, 2.6rem);
+        padding-bottom: 0.625rem;
+    }
+    p {
+        max-width: 40rem;
+        color: $silver;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.625rem;
+        width: 100%;
+        @include breakpoint-up(medium) {
+            flex-direction: row;
+            gap: 1.25rem;
+        }
+        input[type=email] {
+            width: 100%;
+            height: 3rem;
+            padding: 0.625rem 1.25rem;
+            border-radius: 3.125rem;
+            outline: none;
+            border: none;
+            @include breakpoint-up(medium) {
+                width: 46.375rem;
+            }
+            &:focus {
+                border: none;
+            }
+        }
+        input[type=submit] {
+            width: 100%;
+            background: linear-gradient(to right, $cyan, $blue);
+            height: 48px;
+            @include breakpoint-up(medium) {
+                width: 20.125rem;
+            }
+            &:focus {
+                border: none;
+            }
+        }
+    }
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 14.0625rem 1.25rem 1.25rem;
+    grid-gap: 1.875rem;
+    background-color: $darkBlue3;
+    max-width: 90rem;
+    @include breakpoint-up(large) {
+        grid-template-columns: 3fr 2fr 2fr 2fr auto;
+        grid-template-rows: 3.75rem 1fr;
+        grid-template-areas: "logo logo logo logo logo" 
+                            "location info links more-links social";
+        grid-column-gap: 2.1875rem;
+    }
+    .logo {
+        @include breakpoint-up(large) {
+            grid-area: logo;
+            align-self: center;
+        }
+    }
+    .location {
+        color: $silver;
+        @include breakpoint-up(large) {
+            grid-area: location;
+        }
+
+    }
+    .info {
+        > span {
+            color: $silver;
+        }
+        @include breakpoint-up(large) {
+           grid-area: info;
+        }
+    }
+    .links, .more-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        a {
+            padding-bottom: 0.625rem;
+            font-size: 0.9375rem;
+            color: $silver;
+        }
+    }
+    .links {
+        @include breakpoint-up(large) {    
+            grid-area: links;
+        }
+    }
+    .more-links {
+        @include breakpoint-up(large) {
+          grid-area: more-links;
+        align-self: flex-start;
+        }
+    }
+    .social-icon {
+        text-align: center;
+        @include breakpoint-up(large) {
+            grid-area: social;
+             
+          }
+        svg {
+            width: 2.1875rem;
+            height: 2.1875rem;
+            border: 1px solid $white;
+            border-radius: 50%;
+            padding: 0.5rem;
+            fill: $white;
+            margin-right: 1rem;
+            transition: all 150ms ease-in-out;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+                fill: $darkBlue3;
+            }
+        }
+    }
+}
